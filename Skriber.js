@@ -1,8 +1,7 @@
 import axios from 'axios';
-import autobahn from 'autobahn'
-import Connection from "~/pusher/Connection";
+import Connection from "./Connection";
 
-export default class Pusher {
+export default class Skriber {
 
   constructor(appID, publicKey, opt = {}) {
     this.settings = Object.assign({
@@ -27,15 +26,6 @@ export default class Pusher {
     this.connection.open();
   }
 
-  async prepare() {
-    let sess = null;
-    this.connection.onopen = await function (session) {
-      sess = session;
-    };
-    this.session = sess;
-    await this.connection.open();
-  }
-
   subscribe(channel, callback) {
     this.connection.getSession().then((session) => {
       channel = this.appID + '_' + channel;
@@ -54,7 +44,7 @@ export default class Pusher {
         channel = this.appID + '_' + channel + '.private';
         session.subscribe(channel, callback);
       }).catch(() => {
-        console.warn("Pusher: Not allowed to subscribe to channel \"" + channel + "\"");
+        console.warn("Skriber: Not allowed to subscribe to channel \"" + channel + "\"");
       });
     });
   }

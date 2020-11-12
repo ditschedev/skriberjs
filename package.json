@@ -2,7 +2,7 @@
   "name": "skriberjs",
   "version": "1.0.1",
   "description": "JavaScript client for the skriber.co realtime api",
-  "main": "Pusher.js",
+  "main": "Skriber.js",
   "author": "Tobias Dittmann",
   "repository": "ditschedev/skriberjs",
   "license": "MIT",

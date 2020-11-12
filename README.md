@@ -34,7 +34,7 @@ let client = new Skriber(appID, publicKey, {
 ### Subscribing to channels
 
 #### Public channels
-After initiating the Pusher client, you can use the instances `subscribe` function to subscribe to channels. The following script connects to the channel `channel.name` and logs the payload, if something is pushed to the channel.
+After initiating the Skriber client, you can use the instances `subscribe` function to subscribe to channels. The following script connects to the channel `channel.name` and logs the payload, if something is pushed to the channel.
 ```javascript
 	client.subscribe('channel.name', (payload) => {
 		console.log(payload);
